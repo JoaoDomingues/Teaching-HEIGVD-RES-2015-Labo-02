@@ -42,7 +42,8 @@ public class RouletteV1ClientImpl implements IRouletteV1Client {
      writer.println(RouletteV1Protocol.CMD_BYE);
      writer.flush();
      writer.close();
-     //lit le message de bienvenue
+     //lit le message de déconnection
+     reader.read();
      reader.close();
      connection.close();
     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -73,12 +74,16 @@ public class RouletteV1ClientImpl implements IRouletteV1Client {
   public void loadStudents(List<Student> students) throws IOException {
      writer.println(RouletteV1Protocol.CMD_LOAD);
      writer.flush();
+     //lit le message de début
+     reader.readLine();
      for(Student student : students){
         writer.println(student.getFullname());
         writer.flush();
      }
      writer.println(RouletteV1Protocol.CMD_LOAD_ENDOFDATA_MARKER);
      writer.flush();
+     //lit le message de fin
+     reader.readLine();
     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
 
