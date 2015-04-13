@@ -19,6 +19,7 @@ import org.junit.rules.ExpectedException;
  *
  * @author Laurent Girod
  */
+
 public class RouletteV2Laurent_GirodTest {
 
   @Rule
@@ -43,7 +44,7 @@ public class RouletteV2Laurent_GirodTest {
     client.clearDataStore();
     assertEquals(0, client.getNumberOfStudents());
   }
-
+ 
   @Test
   @TestAuthor(githubId = "laurent-girod")
   public void theServerShouldBeAbleToListOneStudentsInItsDatabase() throws Exception {
@@ -105,3 +106,4 @@ public class RouletteV2Laurent_GirodTest {
   }
   
 }
+

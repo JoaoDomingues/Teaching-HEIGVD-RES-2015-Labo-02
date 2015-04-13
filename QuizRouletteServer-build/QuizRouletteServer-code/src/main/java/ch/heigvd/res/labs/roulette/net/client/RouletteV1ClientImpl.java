@@ -25,8 +25,8 @@ public class RouletteV1ClientImpl implements IRouletteV1Client {
 
   private static final Logger LOG = Logger.getLogger(RouletteV1ClientImpl.class.getName());
   private Socket connection;
-  private PrintWriter writer;
-  private BufferedReader reader;
+  protected PrintWriter writer;
+  protected BufferedReader reader;
 
   @Override
   public void connect(String server, int port) throws IOException {
@@ -94,7 +94,6 @@ public class RouletteV1ClientImpl implements IRouletteV1Client {
   public Student pickRandomStudent() throws EmptyStoreException, IOException {
       writer.println(RouletteV1Protocol.CMD_RANDOM);
       writer.flush();
-      
       RandomCommandResponse student = JsonObjectMapper.parseJson(reader.readLine(), RandomCommandResponse.class);
       
       //vérifie s'il y a une erreur (base vide)

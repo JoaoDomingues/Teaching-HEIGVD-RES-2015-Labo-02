@@ -28,7 +28,7 @@ public class RouletteV2HauraneTest {
 
   @Test
   @TestAuthor(githubId = {"haurane", "JoaoDomingues"})
-  public void theServerShouldReturnAemptListWhenTestStart() throws IOException {
+  public void theServerShouldReturnAnEmptListWhenTestStarts() throws IOException {
      assertTrue(((RouletteV2ClientImpl)roulettePair.getClient()).listStudents().isEmpty());
   }
   
@@ -82,7 +82,7 @@ public class RouletteV2HauraneTest {
 
   @Test
   @TestAuthor(githubId = {"haurane", "JoaoDomingues"})
-  public void theServerShouldNotLoadAEmptyString() throws IOException {
+  public void theServerShouldNotLoadAnEmptyString() throws IOException {
      RouletteV2ClientImpl client = (RouletteV2ClientImpl)roulettePair.getClient();
      client.loadStudent("");
      assertEquals(0, client.getNumberOfStudents());
@@ -90,7 +90,7 @@ public class RouletteV2HauraneTest {
   
   @Test
   @TestAuthor(githubId = {"haurane", "JoaoDomingues"})
-  public void theServerShouldNotLoadWithOnlySpace() throws IOException {
+  public void theServerShouldNotLoadWithOnlyWhiteSpace() throws IOException {
      RouletteV2ClientImpl client = (RouletteV2ClientImpl)roulettePair.getClient();
      client.loadStudent("    ");
      assertEquals(0, client.getNumberOfStudents());

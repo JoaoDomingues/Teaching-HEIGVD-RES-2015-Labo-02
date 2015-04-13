@@ -16,6 +16,7 @@ import org.junit.rules.ExpectedException;
  *
  * @author David
  */
+
 public class RouletteV2Joke1196Test {
 
     @Rule
